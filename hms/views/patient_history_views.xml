@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+
+                <!-- Tree View -->
+        <record id="patient_history_tree_view" model="ir.ui.view">
+            <field name="name">patient history tree view</field>
+            <field name="model">patient.history</field>
+            <field name="arch" type="xml">
+                <tree>
+                <field name="create_uid"/>
+                <field name="create_date"/>
+                <field name="description"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- form view  -->
+        <record id="patient_history_form_view" model="ir.ui.view">
+            <field name="name">patient.history.form.view</field>
+            <field name="model">patient.history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="create_uid"/>
+                            </group>
+                            <group>
+                                <field name="create_date"/>
+                            </group>
+                        </group>
+                        <notebook>
+
+                            <page string="Description">
+                                <group>
+                                    <field name="description"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- action record  -->
+        <record id="patient_history_action" model="ir.actions.act_window">
+            <field name="name">Patient History</field>
+            <field name="res_model">patient.history</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">ir.actions.act_window</field>
+        </record>
+
+        <menuitem id="patient_history_menu" name="Patient_history" sequence="20"
+                  parent="patient_root_menu" action="patient_history_action"/>
+    </data>
+</odoo>

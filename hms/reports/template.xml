@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+
+        <template id="hms_patient_pdf_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1>Patient Status Report</h1>
+                            <div class="w-25 h-25 tex-right">
+                                 <span class="img-fluid" t-field="o.avatar" t-options='{"widget": "image"}'/>
+
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Department</th>
+                                    <th>Doctors</th>
+                                    <th>Birth date</th>
+                                    <th>PCR</th>
+                                    <th>Blood Type</th>
+                                    <th>Email</th>
+
+
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span t-field="o.first_name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.age"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.department_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.doctor_ids.first_name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.birth_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.PCR"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.Blood_type"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="o.email"/>
+                                    </td>
+
+                                </tr>
+
+
+                            </table>
+                            <div >
+                                <h1>Log History</h1>
+                                <span t-esc="o.patient_history_ids"/>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
+
+
